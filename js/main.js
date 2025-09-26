@@ -1,4 +1,4 @@
-import AudioPlayer from './AudioPlayer'
+import AudioPlayer from './AudioPlayer/index.js'
 
 const audios = [
   {
