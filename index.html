@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width user-scalable=no" />
+    <title>Audio player</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="enable-portrait-screen">
+      <img
+        class="enable-portrait-screen__img"
+        src="./assets/landscape-to-portrait.png"
+        alt="Переверните устройство в портретный режим"
+        width="200"
+        height="200"
+      >
+    </div>
+
+    <div class="player">
+      <div class="player__background">
+        <h1 class="player__background-music-name">Загрузка..</h1>
+      </div>
+
+      <div class="player__current">
+        <img src="./assets/music-bg.png" alt="" class="player__img" draggable="false" />
+        <div class="player__info">
+          <div class="player__music-name">Загрузка..</div>
+          <div class="player__music-author">Загрузка..</div>
+        </div>
+        <div class="progress">
+          <input
+            type="range"
+            class="progress__range"
+            min="0"
+            max="100"
+            value="0"
+            id="range"
+          />
+          <div class="progress__time">
+            <span class="progress__current">00:00</span>
+            <span class="progress__duration">00:00</span>
+          </div>
+        </div>
+        <div class="player__controls">
+          <button class="player__control player__control--prev">
+            <svg
+              width="106"
+              height="104"
+              viewBox="0 0 106 104"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="10" height="104" transform="matrix(-1 0 0 1 10 0)" />
+              <path d="M106 0L10 51.5V52.5L106 104V0Z" />
+            </svg>
+          </button>
+          <button class="player__control player__control--play">
+            <svg
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              viewBox="0 0 335 335"
+              xml:space="preserve"
+            >
+              <polygon points="22.5,0 22.5,335 312.5,167.5 " />
+            </svg>
+          </button>
+          <button class="player__control player__control--next">
+            <svg
+              width="106"
+              height="104"
+              viewBox="0 0 106 104"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="96" width="10" height="104" />
+              <path d="M0 0L96 51.5V52.5L0 104V0Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="audio-list">
+        <button class="audio-list__btn">Мои аудиозаписи</button>
+        <div class="audio-list__wrapper">
+          <h2 class="audio-list__title">Мои аудиозаписи (<span class="audio-list__music-count">0</span>)</h2>
+          <label>
+            <input type="search" placeholder="Поиск" class="search audio-list__search" >
+          </label>
+          <div class="music"></div>
+          <div class="audio-list__controls">
+            <div class="audio-list__volume">
+              <button class="audio-list__control audio-list__control--volume">
+                <svg
+                  fill="currentColor"
+                  width="102"
+                  height="102"
+                  viewBox="0 0 102 102"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_6_8)">
+                    <path
+                      d="M61.625 8.5C61.3455 8.49106 61.0675 8.54351 60.8105 8.65366C60.5535 8.7638 60.3238 8.92896 60.1375 9.1375L35.4875 31.875H17C15.8728 31.875 14.7918 32.3228 13.9948 33.1198C13.1978 33.9168 12.75 34.9978 12.75 36.125V65.875C12.75 67.0022 13.1978 68.0832 13.9948 68.8802C14.7918 69.6772 15.8728 70.125 17 70.125H35.4875L60.1375 92.8625C60.3238 93.071 60.5535 93.2362 60.8105 93.3463C61.0675 93.4565 61.3455 93.5089 61.625 93.5C62.1886 93.5 62.7291 93.2761 63.1276 92.8776C63.5261 92.4791 63.75 91.9386 63.75 91.375V10.625C63.75 10.0614 63.5261 9.52091 63.1276 9.1224C62.7291 8.72388 62.1886 8.5 61.625 8.5Z"
+                    />
+                    <path
+                      d="M76.5 89.25C75.8431 89.2344 75.1977 89.074 74.6099 88.7801C74.0222 88.4863 73.5066 88.0662 73.1 87.55C72.7651 87.1035 72.5215 86.5954 72.383 86.0548C72.2445 85.5141 72.2138 84.9515 72.2927 84.3989C72.3716 83.8464 72.5586 83.3149 72.843 82.8346C73.1273 82.3544 73.5035 81.9349 73.95 81.6C78.7005 78.0371 82.5562 73.4171 85.2118 68.1059C87.8675 62.7947 89.25 56.9381 89.25 51C89.25 45.0619 87.8675 39.2053 85.2118 33.8941C82.5562 28.5829 78.7005 23.9629 73.95 20.4C73.5035 20.0651 73.1273 19.6456 72.843 19.1653C72.5586 18.6851 72.3716 18.1535 72.2927 17.601C72.2138 17.0485 72.2445 16.4859 72.383 15.9452C72.5215 15.4046 72.7651 14.8965 73.1 14.45C73.4349 14.0035 73.8544 13.6273 74.3347 13.343C74.8149 13.0586 75.3464 12.8716 75.899 12.7927C76.4515 12.7138 77.0141 12.7445 77.5548 12.883C78.0954 13.0215 78.6035 13.2651 79.05 13.6C84.8082 17.9993 89.4859 23.6553 92.7266 30.1367C95.9673 36.6181 97.6854 43.7539 97.75 51C97.6854 58.2461 95.9673 65.3819 92.7266 71.8633C89.4859 78.3447 84.8082 84.0007 79.05 88.4C78.341 89.0008 77.4277 89.3052 76.5 89.25Z"
+                    />
+                    <path
+                      d="M72.25 32.9375V69.0625C72.25 69.2855 72.3202 69.5028 72.4506 69.6838C72.5809 69.8647 72.7649 70 72.9765 70.0705C73.1881 70.141 73.4164 70.1432 73.6293 70.0767C73.8422 70.0102 74.0287 69.8784 74.1625 69.7C78.4407 64.4065 80.7744 57.8061 80.7744 51C80.7744 44.1939 78.4407 37.5935 74.1625 32.3C74.0287 32.1216 73.8422 31.9898 73.6293 31.9233C73.4164 31.8568 73.1881 31.859 72.9765 31.9295C72.7649 32 72.5809 32.1353 72.4506 32.3162C72.3202 32.4972 72.25 32.7145 72.25 32.9375Z"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_6_8">
+                      <rect width="102" height="102" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="70"
+                class="audio-list__control audio-list__control--volume-range"
+                style="background: linear-gradient(to right, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.313) 70%)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>
